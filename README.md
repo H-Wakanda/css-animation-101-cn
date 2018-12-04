@@ -15,3 +15,8 @@
 ## 原文链接
 
 [https://github.com/cssanimation/css-animation-101](https://github.com/cssanimation/css-animation-101)
+
+## 作者
+
+[Twitter](https://twitter.com/cssanimation)
+[GitHub](https://github.com/cssanimation)
