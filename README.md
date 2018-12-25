@@ -2,7 +2,7 @@
 
 ![https://raw.githubusercontent.com/cssanimation/css-animation-101/master/images/cover-small.png](https://raw.githubusercontent.com/cssanimation/css-animation-101/master/images/cover-small.png)
 
-学习 CSS Animation, 助你升职加薪，迎娶百福美，走上人生巅峰。
+学习 CSS Animation, 助你升职加薪，迎娶白福美，走上人生巅峰。
 
 本书理论与实践相结合，通过大量的例子来讲解 animation 的知识。
 
@@ -18,5 +18,5 @@
 
 ## 作者
 
-[Twitter](https://twitter.com/cssanimation)
-[GitHub](https://github.com/cssanimation)
++ [Twitter](https://twitter.com/cssanimation)
++ [GitHub](https://github.com/cssanimation)
