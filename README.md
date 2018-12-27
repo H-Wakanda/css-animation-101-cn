@@ -28,7 +28,7 @@
 
 ## 翻译
 
-- RicoLiu
+- 佚名
 - shiwenna
 - xuanyuan
 - [helloca](http://helloca.surge.sh/)
