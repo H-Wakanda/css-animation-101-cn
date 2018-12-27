@@ -20,3 +20,12 @@
 
 + [Twitter](https://twitter.com/cssanimation)
 + [GitHub](https://github.com/cssanimation)
+
+
+## 翻译
+
+- RicoLiu
+- shiwenna
+- xuanyuan
+- [helloca](http://helloca.surge.sh/)
+- lvlinlin
