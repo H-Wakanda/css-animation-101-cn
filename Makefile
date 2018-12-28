@@ -1,4 +1,5 @@
 BUILD = build
+DOCS = docs
 OUTPUT_FILENAME = book
 METADATA = metadata.yml
 CHAPTERS = chapters/**/*.md
@@ -13,16 +14,19 @@ ARGS = $(TOC) $(MATH_FORMULAS) $(CSS_ARG)
 
 all: book
 
-book: epub html pdf
+book: epub html pdf docs
 
 clean:
 	rm -r $(BUILD)
+	rm -r $(DOCS)
 
 epub: $(BUILD)/epub/$(OUTPUT_FILENAME).epub
 
 html: $(BUILD)/html/$(OUTPUT_FILENAME).html
 
 pdf: $(BUILD)/pdf/$(OUTPUT_FILENAME).pdf
+
+docs: $(DOCS)/$(OUTPUT_FILENAME).html
 
 $(BUILD)/epub/$(OUTPUT_FILENAME).epub: $(METADATA) $(CHAPTERS)
 	mkdir -p $(BUILD)/epub
@@ -37,3 +41,10 @@ $(BUILD)/html/$(OUTPUT_FILENAME).html: $(CHAPTERS)
 $(BUILD)/pdf/$(OUTPUT_FILENAME).pdf: $(METADATA) $(CHAPTERS)
 	mkdir -p $(BUILD)/pdf
 	pandoc $(ARGS) -V documentclass=$(LATEX_CLASS) -o $@ $^
+
+
+$(DOCS)/$(OUTPUT_FILENAME).html: $(CHAPTERS)
+	mkdir -p $(DOCS)
+	pandoc $(ARGS) --standalone --to=html5 -o $@ $^
+	cp -R $(IMAGES_FOLDER)/ $(DOCS)/$(IMAGES_FOLDER)/
+	cp $(CSS_FILE) $(DOCS)/$(CSS_FILE)	
