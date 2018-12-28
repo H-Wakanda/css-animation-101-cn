@@ -132,10 +132,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#controlling-transitions-with-javascript">Controlling transitions with JavaScript</a></li>
 <li><a href="#lets-recap">Let’s recap</a></li>
 <li><a href="#homework-7">Homework</a></li>
-<li><a href="#共生关系">共生关系</a></li>
-<li><a href="#animation-属性"><code>animation</code> 属性</a></li>
+<li><a href="#a-symbiotic-relationship">A symbiotic relationship</a></li>
+<li><a href="#the-animation-property">The <code>animation</code> property</a></li>
 <li><a href="#keyframes">Keyframes</a></li>
-<li><a href="#前缀">前缀</a></li>
+<li><a href="#prefixes">Prefixes</a></li>
 <li><a href="#homework-8">Homework</a></li>
 <li><a href="#using-timing-functions-within-keyframes">Using timing functions within keyframes</a></li>
 <li><a href="#homework-9">Homework</a></li>
@@ -620,7 +620,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Can you think of ways they could help smooth the interactions or state changes on your pages? How might they add appeal? # 动作中的动画</p>
 <p>现在我们已经了解了 <code>transition</code> 属性，让我们深入了解下 <code>animation</code> 属性</p>
 <p><img src="images/abc.png" /></p>
-<h2 id="共生关系">共生关系</h2>
+<h2 id="a-symbiotic-relationship">A symbiotic relationship</h2>
 <p><code>animation</code> 属性应用到元素上如同 <code>transition</code>。它还需要名为 <code>keyframes</code> 的第二部分</p>
 <pre><code>.element {
   animation: ...
@@ -630,7 +630,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   /* Keyframes go here */
 }</code></pre>
 <p>单独定义 <code>keyframse</code> 的好处是它允许我们创建可以多次重复使用的动画。</p>
-<h2 id="animation-属性"><code>animation</code> 属性</h2>
+<h2 id="the-animation-property">The <code>animation</code> property</h2>
 <p>应用这些keyframes到一个元素上使用 <code>animation</code> 属性来完成。除了需要一些额外的属性外，和 <code>transition</code> 十分相似。<code>animation</code> 可以使用下面的简写方式书写：</p>
 <pre><code>animation: change-background 4s linear infinite;</code></pre>
 <p>分开写像下面这样：</p>
@@ -674,7 +674,7 @@ animation-repeat: infinite;</code></pre>
 <p>之前，我曾提到使用 animation-direction 属性来替换动画。这是它的样子：</p>
 <p><img src="images/simple-keyframes-alternating-min.gif" /></p>
 <p>在这种情况下，我已将 animation-direction 属性更改为 alternate。<a href="http://codepen.io/donovanh/pen/NPZqej">在 CodePen 上</a>看到它。</p>
-<h2 id="前缀">前缀</h2>
+<h2 id="prefixes">Prefixes</h2>
 <p>目前，仍然需要在动画属性上使用 -webkit- 前缀。我没有将它添加到示例中，但是您的动画需要在 Safari 等浏览器中使用它将是需要的。</p>
 <p>在CodePen中，您可以使用 CSS 设置中的 “Autoprefixer” 选项。对于本地开发，我使用 Gulp 版本的 Autoprefixer。 <a href="http://leaverou.github.io/prefixfree/">Prefix Free</a>也是一个不错的选择。</p>
 <h2 id="homework-8">Homework</h2>
