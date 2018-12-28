@@ -16,6 +16,11 @@
 
 更多教程，请查看：[cssanimation.rocks](https://cssanimation.rocks)
 
+##### 中文版本
+
+* [Web version](https://h-wakanda.github.io/css-animation-101-cn/)
+* [ePub version](https://github.com/H-Wakanda/css-animation-101-cn/blob/master/build/epub/book.epub)
+
 ## 原文链接
 
 [https://github.com/cssanimation/css-animation-101](https://github.com/cssanimation/css-animation-101)
