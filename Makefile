@@ -1,6 +1,7 @@
 BUILD = build
 DOCS = docs
 OUTPUT_FILENAME = book
+DOCS_FILENAME = index
 METADATA = metadata.yml
 CHAPTERS = chapters/**/*.md
 TOC = --toc --toc-depth=2
@@ -26,7 +27,7 @@ html: $(BUILD)/html/$(OUTPUT_FILENAME).html
 
 pdf: $(BUILD)/pdf/$(OUTPUT_FILENAME).pdf
 
-docs: $(DOCS)/$(OUTPUT_FILENAME).html
+docs: $(DOCS)/$(DOCS_FILENAME).html
 
 $(BUILD)/epub/$(OUTPUT_FILENAME).epub: $(METADATA) $(CHAPTERS)
 	mkdir -p $(BUILD)/epub
@@ -43,7 +44,7 @@ $(BUILD)/pdf/$(OUTPUT_FILENAME).pdf: $(METADATA) $(CHAPTERS)
 	pandoc $(ARGS) -V documentclass=$(LATEX_CLASS) -o $@ $^
 
 
-$(DOCS)/$(OUTPUT_FILENAME).html: $(CHAPTERS)
+$(DOCS)/$(DOCS_FILENAME).html: $(CHAPTERS)
 	mkdir -p $(DOCS)
 	pandoc $(ARGS) --standalone --to=html5 -o $@ $^
 	cp -R $(IMAGES_FOLDER)/ $(DOCS)/$(IMAGES_FOLDER)/
