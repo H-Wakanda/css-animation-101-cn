@@ -13,7 +13,7 @@ ARGS = $(TOC) $(MATH_FORMULAS) $(CSS_ARG)
 
 all: book
 
-book: epub html pdf
+book: epub html
 
 clean:
 	rm -r $(BUILD)
