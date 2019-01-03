@@ -648,7 +648,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>现在我们已经了解了 <code>transition</code> 属性，让我们深入了解下 <code>animation</code> 属性</p>
 <p><img src="images/abc.png" /></p>
 <h2 id="a-symbiotic-relationship">A symbiotic relationship</h2>
-<p><code>animation</code> 属性应用到元素上如同 <code>transition</code>。它还需要名为 <code>keyframes</code> 的第二部分</p>
+<p>给元素添加 <code>animation</code> 跟添加 <code>transition</code>类似。不过它还需要 <code>keyframes</code> 。</p>
 <pre><code>.element {
   animation: ...
 }
@@ -656,30 +656,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 @keyframes animation-name {
   /* Keyframes go here */
 }</code></pre>
-<p>单独定义 <code>keyframse</code> 的好处是它允许我们创建可以多次重复使用的动画。</p>
+<p>单独定义 <code>keyframes</code> 的好处是我们可以复用这些动画。</p>
 <h2 id="the-animation-property">The <code>animation</code> property</h2>
-<p>应用这些keyframes到一个元素上使用 <code>animation</code> 属性来完成。除了需要一些额外的属性外，和 <code>transition</code> 十分相似。<code>animation</code> 可以使用下面的简写方式书写：</p>
+<p>我们通过 <code>animation</code> 属性可以将编写的 keyframes 应用到元素上。<code>animation</code> 和 <code>transition</code> 很类似，不过多了一些其他的选项。下面是 <code>animation</code> 的简写方式：</p>
 <pre><code>animation: change-background 4s linear infinite;</code></pre>
-<p>分开写像下面这样：</p>
+<p>分开写就是下面这样：</p>
 <pre><code>animation-name: change-background;
 animation-duration: 4s;
 animation-timing-function: linear;
 animation-repeat: infinite;</code></pre>
-<p><code>transition</code> 需要带着一个 <code>property</code>，例如 “background” 或 “all”，<code>animation</code> 属性则需要带 <code>keyframes</code> 集合的名字来描述动画顺序</p>
-<p>动画拥有一些变换没有的属性。例如，我们可以告诉动画来回交替，而不是每次从头开始循环。</p>
+<p><code>transition</code> 需要指定一个目标属性，例如 “background” 或 “all”，<code>animation</code> 则需要带 <code>keyframes</code> 的名字来描述动画。</p>
+<p>animation 拥有一些 transition 没有的属性。例如，我们可以告诉动画来回交替循环，而不是每次从头开始循环。</p>
 <h2 id="keyframes">Keyframes</h2>
-<p>在CSS中，<code>keyframes</code> 集合是通过动画的一系列停靠点。</p>
-<p>我认为用一个例子来描述它是十分有用的。让我们从网页的 <code>div</code> 标签开始随着时间变化改变背景色。从蓝色背景开始，变为橙色，最后变为绿色。</p>
+<p><code>keyframes</code> 是用来描述动画过程中一系列变化的。</p>
+<p>我们用一个简单的例子来说明下：在网页上有一个 <code>div</code> 标签，它的背景颜色不断地在变，像下面图中显示的那样。</p>
 <p><img src="images/change-background-min.gif" /></p>
-<p>如果我们尝试向某些人解释背景色是如何跟随时间改变的，我们也许会这么说：</p>
-<p>“从蓝色开始，然后是橙色背景，最后绿色背景”</p>
-<p>或者，如果我们想要更精确地来解释，也许会使用百分比来表述时间点</p>
-<p>”0%的时候，从蓝色背景开始，然后50%的时候橙色，100%的时候变成绿色“</p>
+<p>怎样描述这种变化呢？我们可以说“开始时蓝色，到一半时变成橙色，最后变成绿色”</p>
+<p>如果再精确一点描述，我们可以用百分比来描述：</p>
+<p>“0%的时候蓝色背景，50%的时候橙色，100%的时候绿色”</p>
 <p>我们可以概括为：</p>
 <pre><code>0% Blue
 50% Green
 100% Orange</code></pre>
-<p>通过这些百分比，我们创建了一系列动画可能传递的“路径点”。 我们现在需要做的就是告诉浏览器这些百分比实际上是 <code>keyframes</code> 并为动画命名。 结果如下：</p>
+<p>这样子我们就创建了动画整个过程中包含的“路径点”（waypoint）。 现在要做的就是将这些百分比按照 <code>keyframes</code> 的规则去写并命名。 结果如下：</p>
 <pre><code>@keyframes change-background {
   0% {
     background: blue;
@@ -691,19 +690,18 @@ animation-repeat: infinite;</code></pre>
     background: green;
   }
 }</code></pre>
-<p>这个动画被称为 “change-background”。稍后我们将 keyframes 应用于元素时使用它。</p>
-<p>当您从上到下阅读代码时，百分比描述了每个关键帧发生在动画中的距离。我们可以在这里看到它：</p>
+<p>这个动画名字叫 “change-background”。稍后我们会用到它。</p>
+<p>结合下面的例子，我们可以看出，上面的百分比指的是在动画过程中，其对应的 keyframe 发生的“时间点”。还可以知道，我们只要告诉浏览器开始、中间和结束时的颜色就可以了，在这些状态之间变化时，浏览器会自动去计算颜色值的插值。</p>
 <figure>
 <img src="images/simple-keyframes-min.gif" alt="Source: http://codepen.io/donovanh/pen/WbqNwd?editors=110" /><figcaption>Source: http://codepen.io/donovanh/pen/WbqNwd?editors=110</figcaption>
 </figure>
-<p>当动画发生时，浏览器会创建从每种背景颜色到下一种颜色所需的中间帧。通过告诉浏览器我们希望div从一种颜色开始，中间变成另外一种颜色，最后变成第三种颜色结束，浏览器可以完成在每个点之间创建动画的工作。</p>
-<p>我已经整理了<a href="http://codepen.io/donovanh/pen/WbqNwd?editors=110">一个 CodePen 示例</a>，表明了这一点。</p>
-<p>之前，我曾提到使用 animation-direction 属性来替换动画。这是它的样子：</p>
+<p><a href="http://codepen.io/donovanh/pen/WbqNwd?editors=110">CodePen 链接</a></p>
+<p>前面提到过，使用 animation-direction 可以让动画来回交替变化，看下面的例子，直观地感受下：</p>
 <p><img src="images/simple-keyframes-alternating-min.gif" /></p>
-<p>在这种情况下，我已将 animation-direction 属性更改为 alternate。<a href="http://codepen.io/donovanh/pen/NPZqej">在 CodePen 上</a>看到它。</p>
+<p>代码放到<a href="http://codepen.io/donovanh/pen/NPZqej">CodePen</a>上了。 animation-direction 属性已经更改为 alternate</p>
 <h2 id="prefixes">Prefixes</h2>
-<p>目前，仍然需要在动画属性上使用 -webkit- 前缀。我没有将它添加到示例中，但是您的动画需要在 Safari 等浏览器中使用它将是需要的。</p>
-<p>在CodePen中，您可以使用 CSS 设置中的 “Autoprefixer” 选项。对于本地开发，我使用 Gulp 版本的 Autoprefixer。 <a href="http://leaverou.github.io/prefixfree/">Prefix Free</a>也是一个不错的选择。</p>
+<p>虽然我写的代码里没有加 -webkit- 等前缀，但如果要在实际工程里应用 animation，还是要添加对应的浏览器前缀。</p>
+<p>在 CodePen 中，你可以使用 CSS 设置中的 “Autoprefixer” 选项。对于本地开发，我使用 Gulp 版本的 Autoprefixer。 <a href="http://leaverou.github.io/prefixfree/">Prefix Free</a>也是一个不错的选择。</p>
 <h2 id="homework-8">Homework</h2>
 <p>Open up <a href="http://codepen.io/donovanh/pen/WbqNwd?editors=110">this keyframes example</a> and try changing the code. See if you can break it, and fix it. Even better, if you come up with something cool, let me know!</p>
 <p>I love seeing how you’re getting on. You can <a href="mailto:donovan@cssanimation.rocks">email me</a> or get in touch <a href="https://twitter.com/donovanh">on Twitter</a>.</p>
@@ -712,21 +710,19 @@ animation-repeat: infinite;</code></pre>
 <p>与 <code>transition</code> 属性一样，<code>animation</code> 可以使用简写属性形式，也可以单独指定这些属性。</p>
 <h3 id="animation-delay">animation-delay</h3>
 <p>与 <code>transition-delay</code> 类似，此属性表示在开始之前动画的等待时间。在定义多个动画的情况下特别有用。</p>
-<p>如果定义的动画是循环的，在这种情况下，delay 属性不会每次循环都有效的，只有在给元素添加上动画效果的时候才有效。（只有第一次循环前会有等待时间，其余的就没有了）</p>
+<p>如果定义的动画是不断循环的，在这种情况下，delay 属性并不会每次循环都有效，只有在给元素添加上动画效果的时候才有效。（只有第一次循环前会有等待时间，其余的就没有了）</p>
 <p>实际上可以给这个属性一个负值，比如<code>-1s</code>。动画会直接从第1s开始执行，就好像这1s时间已经过去了。</p>
 <h3 id="animation-direction">animation-direction</h3>
-<p>动画通常从 0% 开始，到 100% 结束。<code>animation-direction</code> 使用 <code>normal</code>，<code>reverse</code>，<code>alternate</code> 和 <code>alternate-reverse</code> 来控制方向。（从开始到结束我们可以看作是一个有向的变化）</p>
-<p>“Reverse”是指从 100% 播放（或循环）到 0%，而 “alternate” 指动画轮流反向播放，即从 0% 播放到 100% 然后再播放到 0%。</p>
+<p>动画通常从 0% 开始，到 100% 结束。<code>animation-direction</code> 使用 <code>normal</code>，<code>reverse</code>，<code>alternate</code> 和 <code>alternate-reverse</code> 来控制动画变化的方向。（从开始到结束我们可以看作是一个有向的变化）</p>
+<p>“Reverse”是指从 100% 播放（或循环）到 0%，而 “alternate” 指动画轮流反复播放，即从 0% 播放到 100% 然后再播放到 0%。</p>
 <h3 id="animation-duration">animation-duration</h3>
 <p>动画完成一个周期所需要的时间。类似于 <code>transition-duration</code>，以秒或毫秒计,如<code>1s</code>、<code>200ms</code>。</p>
 <h3 id="animation-fill-mode">animation-fill-mode</h3>
 <p>默认情况下，动画播放完成元素返回其正常状态。使用 <code>animation-fill-mode</code>，我们可以定义元素在动画结束或开始前的状态。</p>
 <p>使用 <code>forwards</code> 表示当动画完成后，元素属性保持最后一个关键帧的值。使用 <code>backwards</code> 表示动画完成后，元素属性变成第一帧（这个第一帧不是关键帧的第一帧，<a href="https://codepen.io/jiangxiaoxin/pen/QzWYwG">CodePen Demo</a>）的值。【Tips:<code>animation-fill-mode</code> 除了这里说的两个之外还有多个可选值。】</p>
 <p>例子:<a href="http://hop.ie/">bouncer animation on Hop.ie</a>。 使用 <code>forwards</code>，动画播放一次并在最后一帧结束。【Tips:这个例子貌似没有啊，我翻遍了也没找到】</p>
-<blockquote>
-<p>这里多添了个例子来说明 forwards 和 backwards（原作者并没有写）。<br />
+<p>这里添个例子来说明下 forwards 和 backwards（原作者并没有写）。<br />
 在这个<a href="https://codepen.io/jiangxiaoxin/pen/QzWYwG">例子</a>里使用了 animation-delay 和 animation-fill-mode。从效果上来看，设置 backwards，点击“开始动画”之后，backwards 会立刻变成动画真实过程(animation-duration)第一帧的样子，一直持续整个 animation-delay 时间，然后开始变化，最后动画结束后又变回了最一开始没有添加动画时的状态。</p>
-</blockquote>
 <p><img src="images/animation-fill-mode.gif" /></p>
 <h3 id="animation-iteration-count">animation-iteration-count</h3>
 <p>这是动画播放的次数。默认情况下，它将播放一次。也可以指定一个数字，或指定 “infinite” 以使其永久循环。</p>
