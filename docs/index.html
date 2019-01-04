@@ -108,7 +108,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#transition-properties">Transition properties</a></li>
 <li><a href="#in-summary-1">In summary</a></li>
 </ul></li>
-<li><a href="#animations">Animations</a></li>
+<li><a href="#animations">Animations</a><ul>
+<li><a href="#animation-in-the-browser">Animation in the browser</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#transitions-vs.-animations">Transitions vs. Animations</a></li>
+<li><a href="#homework-3">Homework</a></li>
+</ul></li>
 <li><a href="#transitions-in-action">Transitions in action</a><ul>
 <li><a href="#transitions-2">Transitions</a></li>
 <li><a href="#example-button-transition">Example: Button transition</a></li>
@@ -371,7 +376,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1 id="animations">Animations</h1>
 <p>目前为止，我们讨论了为什么需要动画，介绍了一些激发灵感的资源，也介绍了一些对开发有帮助的工具和网站，并且简单了解了过渡的概念。</p>
 <p>下一步，让我来介绍一下 <code>animation</code> 属性。</p>
-<h3 id="animation-in-the-browser">Animation in the browser</h3>
+<h2 id="animation-in-the-browser">Animation in the browser</h2>
 <p>过渡（transition）和动画（animation）是相似的。两者都是 CSS 的属性，并且都可以通过持续时间（duration），延迟（delay）以及其他属性控制浏览器制作动画效果。</p>
 <p>当然也有不同，过渡指从一个状态到另一个状态的平滑的变化过程，而动画可以是多个“状态”间的变化。</p>
 <figure>
@@ -382,7 +387,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </figure>
 <p>动画更适合相对复杂的场景。上面的例子中有三种状态（A，B，C）。transition 只会从A开始一直到C结束，而 animation 允许我们添加状态B，并且从A到B再到C经历完整的3个状态。</p>
 <p>动画还有一点不同，它可以自动开始。过渡一般需要通过添加样式类或更改状态（如悬停）来触发，但动画可以在页面加载时自动启动。</p>
-<h3 id="examples">Examples</h3>
+<h2 id="examples">Examples</h2>
 <p>Codepen 的“Save”按钮就是一个很好的例子。它能很好的让人们注意到这个按钮。</p>
 <figure>
 <img src="images/save_button-min.gif" alt="Save Button on CodePen" /><figcaption>Save Button on CodePen</figcaption>
@@ -397,14 +402,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="images/macplus-min.gif" alt="Mac Plus created using CSS" /><figcaption>Mac Plus created using CSS</figcaption>
 </figure>
 <p>CSS Mac Plus 可以在 <a href="https://codepen.io/donovanh/full/HGqjp/">CodePen</a> 上面看到，<a href="https://cssanimation.rocks/macplus/">这里</a>是关于如何实现的指导。</p>
-<h3 id="transitions-vs.-animations">Transitions vs. Animations</h3>
+<h2 id="transitions-vs.-animations">Transitions vs. Animations</h2>
 <p>transition 是指从一种状态到另一种状态（A 到 B）的变化，通常是由某种“动作”触发，比如鼠标悬停，或者用 JavaScript 添加或删除样式类。</p>
 <p>animation 更加复杂一些，它允许你按照实际需求添加很多的 keyframes 来创建动画。它可以自动触发，并且可以循环。</p>
 <figure>
 <img src="images/transitions-animations-min.gif" alt="Transition vs Animation" /><figcaption>Transition vs Animation</figcaption>
 </figure>
 <p>后面我们会学习 animation 属性。多去找一些实际的应用例子，如果有不错的例子，记得<a href="mailto:donovan@cssanimation.rocks">告诉我</a>!</p>
-<h3 id="homework-3">Homework</h3>
+<h2 id="homework-3">Homework</h2>
 <p>浏览网页时要多多留意动画。当某物以某种方式移动以引起你的注意的时候，这通常就是一个 animation。</p>
 <p>如果你已经下载 HTML 和 CSS 的脚手架，找到 animation 看一下，与 transition 不同，animation 还需要第二部分，称之为 keyframe。试着改变其中的一些值，看看会产生什么效果。</p>
 <h1 id="transitions-in-action">Transitions in action</h1>
