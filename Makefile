@@ -48,4 +48,4 @@ $(DOCS)/$(DOCS_FILENAME).html: $(CHAPTERS)
 	mkdir -p $(DOCS)
 	pandoc $(ARGS) --standalone --to=html5 -o $@ $^
 	cp -R $(IMAGES_FOLDER)/ $(DOCS)/$(IMAGES_FOLDER)/
-	cp $(CSS_FILE) $(DOCS)/$(CSS_FILE)	
+	cp $(CSS_FILE) $(DOCS)/$(CSS_FILE)
