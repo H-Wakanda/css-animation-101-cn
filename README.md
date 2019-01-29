@@ -34,7 +34,7 @@
 ## 翻译
 
 - 佚名
-- shiwenna
+- [caoshuangna](http://caoshuangna.surge.sh/)
 - xuanyuan
 - [helloca](http://helloca.surge.sh/)
 - lvlinlin
